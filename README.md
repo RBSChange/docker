@@ -5,8 +5,13 @@
 Within a subdirectory:
 
 ```
-docker build -t rbschange/<image>:<tag> -t rbschange/<image>:<tag2> .
+# Build & tag the image
+make
 
-docker push rbschange/<image>
+# Push the image
+make push
+
+# Or simply, to build AND push
+make all
 ```
 
