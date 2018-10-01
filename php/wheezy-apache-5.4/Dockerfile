@@ -25,6 +25,11 @@ RUN useradd -g www-data -G sudo -s /bin/bash -m -d /home/docker docker \
     && ln -sfT /dev/stdout "$APACHE_LOG_DIR/access.log" \
     && ln -sfT /dev/stdout "$APACHE_LOG_DIR/other_vhosts_access.log"
 
+RUN wget -q https://getcomposer.org/download/1.6.5/composer.phar -O /usr/local/bin/composer \
+    && chmod +x /usr/local/bin/composer
+
+COPY 99-custom.ini /etc/php5/apache2/conf.d/99-custom.ini
+
 WORKDIR /var/www/rbschange
 
 EXPOSE 8080
