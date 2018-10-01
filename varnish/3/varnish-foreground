@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+. /etc/default/varnish
+
+DAEMON_OPTS="-a :6081 \
+             -T :6082 \
+             -f /etc/varnish/default.vcl \
+             -S /etc/varnish/secret \
+             -s malloc,256m"
+
+exec varnishd -F ${DAEMON_OPTS} "$@"
