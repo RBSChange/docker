@@ -1,0 +1,19 @@
+version: '3'
+services:
+  rbschange:
+    image: rbschange/change:3.6.9
+    ports:
+    - "42080:8080"
+  solr:
+    image: rbschange/solr:1.4
+  mysql:
+    image: mysql:5.5
+    environment:
+      MYSQL_ROOT_PASSWORD: eYud2thu
+      MYSQL_USER: rbschange
+      MYSQL_PASSWORD: rbsch@nge
+      MYSQL_DATABASE: rbschange
+  maildev:
+    image: djfarrelly/maildev
+    ports:
+    - "42580:80"
