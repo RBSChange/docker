@@ -32,6 +32,8 @@ COPY 99-custom.ini /etc/php5/apache2/conf.d/99-custom.ini
 
 WORKDIR /var/www/rbschange
 
+USER docker
+
 EXPOSE 8080
 
 CMD ["apache2-foreground"]
